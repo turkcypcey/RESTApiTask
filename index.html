@@ -17,8 +17,8 @@
 		<h2>Attend</h2>
 		<form @submit.prevent="addAttendee">
 			<input name="name" v-model="attendee.name" placeholder="name">
-			<input name="notes" v-model="attendee.note" placeholder="Notes: i.e. dietary requirements">
-			<submit>RSPV</submit>
+			<input name="notes" v-model="attendee.notes" placeholder="Notes: i.e. dietary requirements">
+			<button>RSPV</button>
 		</form>
 
 		<h2>Responses</h2>
@@ -32,6 +32,7 @@
 
 	</div>
 <script type="module">
+	const urlAPI = ''
 
 	const RootComponent = {
 	  data() {
@@ -41,7 +42,7 @@
 				name: '',
 				notes: '',
 			},
-			items: [],
+			attendees: [],
 		}
 	  },
 	  created() {
@@ -49,14 +50,13 @@
 		this.updateAttendees()
 	  },
 	  components: {
-		//CreateItem,
 	  },
 	  methods: {
 		updateAttendees() {
 			fetch(`${urlAPI}/attendees`, {
 			})
 				.then(response => response.json())
-				.then(json => {this.items = json})
+				.then(json => {this.attendees = json})
 			.catch(err => console.error(err))
 		},
 		clearInput() {
