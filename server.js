@@ -13,6 +13,10 @@ app.get('/', (req, res) => {
   res.sendFile('index.html', {root: __dirname})
 })
 
+app.get('/vue.js', (req, res) => {
+  res.sendFile('vue.js', {root: __dirname})
+})
+
 ATTENDEES = []
 
 app.post('/attendee/', (req, res) => {
