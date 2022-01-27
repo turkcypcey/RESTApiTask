@@ -1,0 +1,29 @@
+services:
+  server_test:
+    build:
+      context: ./test_server/
+    environment:
+      URI_SERVER: http://server:8000/
+    links:
+        - server
+
+
+  client_test:
+    image: cypress/included:9.3.1
+    working_dir: /tests
+    volumes:
+      # USER passthrough
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/group:/etc/group:ro
+      # mount tests - readonly
+      - ${PWD}/test_client/cypress.json:/tests/cypress.json:ro
+      - ${PWD}/test_client/cypress:/tests/cypress:ro
+      # mount reports - writeable
+      - ${PWD}/test_client/reports:/tests/reports:rw
+    entrypoint: ["cypress"]
+    command: ["run"]
+
+    links:
+        - server
+    environment:
+      - CYPRESS_BASE_URL=http://server:8000/
