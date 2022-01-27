@@ -1,7 +1,7 @@
 services:
   server:
     build:
-      context: ./
+      context: ./app/
     expose:
       - 8000
     ports:
