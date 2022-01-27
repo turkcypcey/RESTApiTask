@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<link id="favicon" rel="shortcut icon" type="image/png" href="data:image/png;base64,....==" />
-	<title>Vue.js Test</title>
+	<title>RSPV App</title>
 	<style>
 		
 	</style>
@@ -11,14 +11,14 @@
 	<script src="vue.js"></script>
 </head>
 <body>
-	<h1>Vue.js Test</h1>
+	<h1>RSVP App</h1>
 	<div id="app">
 
 		<h2>Attend</h2>
 		<form @submit.prevent="addAttendee">
 			<input name="name" v-model="attendee.name" placeholder="name">
 			<input name="notes" v-model="attendee.notes" placeholder="Notes: i.e. dietary requirements">
-			<button>RSPV</button>
+			<button data-action="create">RSPV</button>
 		</form>
 
 		<h2>Responses</h2>
@@ -73,8 +73,8 @@
 				body: JSON.stringify(this.attendee),
 			})
 				.then(response => response.json())
-				.then(()=>this.updateAttendees())
 				.then(()=>this.clearInput())
+				.then(()=>this.updateAttendees())
 			.catch(err => console.error(err));
 		},
 		deleteAttendee(id) {
