@@ -1,11 +1,11 @@
 FROM node:alpine
 
-RUN apk add --no-cache \
-    curl
-
 WORKDIR /app/
 
-RUN curl https://unpkg.com/vue@next -L -o vue.js
+# Download `vue.js` to serve locally - without this an internet connection is required
+#RUN apk add --no-cache \
+#    curl
+#RUN curl https://unpkg.com/vue@next -L -o vue.js
 
 COPY package.json ./
 RUN npm install

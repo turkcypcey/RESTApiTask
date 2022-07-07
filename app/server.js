@@ -12,15 +12,15 @@ app.use(express.json());  // Enable json input from incoming requests. This is a
 app.get('/', (req, res) => {
   res.sendFile('client.html', {root: __dirname})
 })
-app.get('/vue.js', (req, res) => {
-  res.sendFile('vue.js', {root: __dirname})
-})
+//app.get('/vue.js', (req, res) => {
+//  res.sendFile('vue.js', {root: __dirname})
+//})
 
 ATTENDEES = []
 
 app.post('/attendee/', (req, res) => {
   ATTENDEES.push(req.body)
-  res.json({ })
+  res.status(201).json(req.body)
 })
 
 app.get('/attendees/', (req, res) => {
@@ -30,7 +30,7 @@ app.get('/attendees/', (req, res) => {
 app.delete('/attendee/:id', (req, res) => {
   const id = parseFloat(req.params.id)
   ATTENDEES = [...ATTENDEES.filter((attendee)=>attendee.id != id)]
-  res.json({ })
+  res.status(204).json({ })
 })
 
 // Serve -----------------------------------------------------------------------
