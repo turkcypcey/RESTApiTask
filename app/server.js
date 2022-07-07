@@ -6,6 +6,9 @@ const port = 8000
 
 app.use(express.json());  // Enable json input from incoming requests. This is accessible from `req.body`
 
+// CORS - https://expressjs.com/en/resources/middleware/cors.html
+const cors = require('cors')
+app.use(cors())
 
 // Routes ----------------------------------------------------------------------
 
@@ -19,12 +22,16 @@ app.get('/', (req, res) => {
 ATTENDEES = []
 
 app.post('/attendee/', (req, res) => {
+  // TODO: Consider 405 for incorrect fields
+  if (Object.keys(req.body).sort().toString() != 'id,name,notes') {
+    return res.status(405).json({message: 'missing fields'})
+  }
   ATTENDEES.push(req.body)
   res.status(201).json(req.body)
 })
 
 app.get('/attendees/', (req, res) => {
-  res.json(ATTENDEES)
+  res.status(200).json(ATTENDEES)
 })
 
 app.delete('/attendee/:id', (req, res) => {
