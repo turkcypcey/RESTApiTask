@@ -1,0 +1,117 @@
+# https://swagger.io/specification/
+openapi: '3.0.2'
+info:
+  title: RSPV
+  version: '0.1'
+  description: |
+    # RSPV
+
+    The simplest REST API possible with POST, GET and DELETE methods
+
+    # Authentication
+    As this is a service created as a learning activity, there is no security or authentication.
+
+servers:
+  - url: //api.server.test/v1
+    description: The deployed url of the api. Currently it is not hosted externally.
+
+paths:
+
+  '/':
+    get:
+      tags:
+        - root
+      summary: Return a single html page client
+      description: Single page HTML/JS web app
+      operationId: root
+      responses:
+        '200':
+          description: OK
+          content:
+            text/html:
+                example: <html><body>Your HTML text</body></html>
+
+  '/attendee/':
+    post:
+      tags:
+        - attendee
+      summary: Add a new attendee
+      description: Add a new attendee to the event with additional notes
+      requestBody:
+        $ref: '#/components/requestBodies/Attendee'
+      responses:
+        '201':
+          description: Attendee created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attendee'
+
+  '/attendee/{attendeeId}/':
+    parameters:
+      - name: attendeeId
+        in: path
+        description: ID of attendee
+        required: true
+        schema:
+          $ref: '#/components/schemas/Id'
+
+    delete:
+      tags:
+        - attendee
+      summary: Remove an attendee
+      description: Remove an attendee by attendeeId
+      responses:
+        '404':
+          description: Item not found
+        '204':
+          description: Ok
+
+  '/attendees/':
+    get:
+      tags:
+        - attendee
+      summary: List all attendees
+      description: Get a list of all attendees with there additional requirements.
+      responses:
+        '200':
+          description: get list of attendees
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Attendee'
+
+components:
+
+  requestBodies:
+    Attendee:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Attendee'
+      description: The fields required to create an Attendee object
+      required: true
+
+  schemas:
+    Id:
+      type: number
+      format: double
+
+    Attendee:
+      required:
+        - id
+        - name
+        - notes
+      allOf:
+        - type: object
+          properties:
+            id:
+              $ref: '#/components/schemas/Id'
+            name:
+              type: string
+              example: "Name of attendee"
+            notes:
+              type: string
+              example: "additional notes like accessibility or dietary requirements"
