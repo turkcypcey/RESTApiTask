@@ -15,6 +15,15 @@ jobs:
     name: test_server
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@main
-    - name: make test_server
-      run: make test_server
+
+      - uses: actions/checkout@main
+
+      - name: make test_server
+        run: make test_server
+
+      - name: upload-artifact test reports
+        uses: actions/upload-artifact@v3
+        with:
+            name: pytest
+            path: test_server/reports/
+            retention-days: 5
