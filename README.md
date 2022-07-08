@@ -1,9 +1,49 @@
 # RESTApiTask
-Small RESTApi and web-client task using expressjs and vuejs
+* Small RESTApi and web-client task
 
-* [redocly -> openapi.yml](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/calaldees/RESTApiTask/main/openapi.yaml)
-* [open in gitpod](https://gitpod.io#https://github.com/calaldees/RESTApiTask)
+Use
+---
 
+* [gitpod](https://gitpod.io#https://github.com/calaldees/RESTApiTask)
+* `make run`
+
+Task
+----
+
+* You are to create an simple RSPV (Répondez s'il vous plaît) webapp with an API
+* You are to implement the [openapi](https://swagger.io/specification/) specification and create a useable web interface using open source frameworks
+    * [redocly -> openapi.yml](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/calaldees/RESTApiTask/main/openapi.yaml)
+* You have been provided with a working complete examples in [expressjs](https://expressjs.com/) and [vuejs](https://vuejs.org/)
+
+### Steps
+1. Clone this repo
+2. Run the demo service to understand the objective `make run`
+3. Run  `make test_server` and `make test_client` to ensure the tests work
+4. Clear the files `app/server.js`,  `app/client.html` and update the gitpod link to your clone at the top of this `README.md`
+5. Commit
+6. You will be supported in stages though the construction of the server and client
+    * We will explore the documentation and tutorials together to build up the functionality
+7. Digital Artifact
+    * You will me marked on the functionality you produce under supervision
+    * Marks (16)
+        * Server Tests 8 (7 tests + startup port open check == 1 mark each == 8 total)
+        * Client Tests 3 (3 tests (create/delete test is worth 6 marks) == 8 total)
+8. Writeup
+    * You will be supported in technically describing the features you have created and evidencing this as `writeup.md` in your repository
+    * Marks (9)
+        * Identification of 3 language features (3 marks)
+        * Identification of 3 server framework features (3 marks)
+        * Identification of 3 client framework features (3 marks)
+9. Your work will be exported as a zip and submitted to turnitit and captured as a github permalink hash
+    * On completing all these tasks you will be awarded 40%/Pass for the module
+
+
+### Time
+This task is expected to take 2 days with supervision.
+
+
+Using the REST service
+----------------------
 
 ```
 curl -v -X POST    http://localhost:8000/attendee -H "Content-Type: application/json" -d '{"id": 123, "name": "test", "notes": "some notes"}'
