@@ -1,0 +1,14 @@
+name: test_client
+
+on: 
+  - workflow_dispatch  # Disable running on every commit because this job downloaded a 4gb image and github actions have no cache
+
+jobs:
+
+  test_client:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: make test_client
+        run: make test_client
