@@ -1,36 +1,33 @@
 # RESTApiTask
 Small RESTApi and web-client task using expressjs and vuejs
 
+* [redocly -> openapi.yml](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/calaldees/RESTApiTask/main/openapi.yaml)
+
 
 ```
 curl -X POST http://localhost:8000/attendee -H "Content-Type: application/json" -d '{"id": 123, "name": "test", "notes": "some notes"}'
 curl http://localhost:8000/attendees
-curl -X DELETE http://localhost:8000/attendee/1
+curl -X DELETE http://localhost:8000/attendee/123
 ```
 
 
 ```javascript
 // Open a blank browser tab and bring up devtools (F12)
 // Copy and paste the code below
-//   These are javascript equivalent of `curl` statesment's
+//   These are javascript equivalent of `curl` statements
 // Start server api
-// Set `urlAPI` to your server address. It MUST not end with a `/`
+// Set `urlAPI` to your server address.
 // TASK: using the devtools console
 //   - add 3 items
 //   - get the item list (explore in devtools)
 //   - delete the middle item
 //
 // e.g:
-//  createAttendee(testAttendee)
+//  addAttendee({id: 456, name: "test", notes: "some notes"})
 //  getAttendees()
 //  deleteAttendee(123)
 
-urlAPI = 'http://localhost:8000'
-testAttendee = {
-    id: "123",
-    name: "test",
-    notes: "some notes",
-}
+urlAPI = 'http://localhost:8000'.replace(/\/+$/,'');
 
 let attendees = []
 
@@ -46,14 +43,14 @@ function getAttendees() {
     .catch(err => console.error(err))
 }
 
-function createAttendee(data) {
+function addAttendee(data) {
     fetch(`${urlAPI}/attendee`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data),
     })
         .then(response => response.json())
-        .then(json => console.log('createAttendee()', json))
+        .then(json => console.log('addAttendee()', json))
     .catch(err => console.error(err));
 }
 

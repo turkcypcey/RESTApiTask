@@ -22,7 +22,6 @@ app.get('/', (req, res) => {
 ATTENDEES = []
 
 app.post('/attendee/', (req, res) => {
-  // TODO: Consider 405 for incorrect fields
   if (Object.keys(req.body).sort().toString() != 'id,name,notes') {
     return res.status(405).json({message: 'missing fields'})
   }
@@ -37,12 +36,12 @@ app.get('/attendees/', (req, res) => {
 app.delete('/attendee/:id', (req, res) => {
   const id = parseFloat(req.params.id)
   ATTENDEES = [...ATTENDEES.filter((attendee)=>attendee.id != id)]
-  res.status(204).json({ })
+  res.status(204).json({})
+  // TODO: implement 404?
 })
 
+
 // Serve -----------------------------------------------------------------------
-
-
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

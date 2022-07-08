@@ -1,3 +1,4 @@
+import random
 from collections.abc import Iterable
 
 import requests
@@ -11,13 +12,48 @@ def test_index(ENDPOINT):
 
 
 def test_GET(ENDPOINT):
+    """
+    GET Returns a json list
+    """
     response = requests.get(f'{ENDPOINT}/attendees')
     assert isinstance(response.json(), Iterable)
 
+
+def test_POST(ENDPOINT):
+    """
+    POST adds and attendee
+    (GET must be implemented)
+    """
+    _id = random.randint(0, 999999)
+    ATTENDEE = {'id': _id, 'name': f'test {_id}', 'notes': f'some notes {_id}'}
+    response = requests.post(f'{ENDPOINT}/attendee', json=ATTENDEE)
+    assert response.status_code == 201
+    assert response.json() == ATTENDEE
+
+    response = requests.get(f'{ENDPOINT}/attendees')
+    assert _id in frozenset(attendee['id'] for attendee in response.json())
+
+
+def test_DELETE(ENDPOINT):
+    """
+    DELETE removes an attendee
+    (GET and POST must be implemented)
+    """
+    _id = random.randint(0, 999999)
+    ATTENDEE = {'id': _id, 'name': f'test {_id}', 'notes': f'some notes {_id}'}
+    response = requests.post(f'{ENDPOINT}/attendee', json=ATTENDEE)
+
+    response = requests.get(f'{ENDPOINT}/attendees')
+    assert _id in frozenset(attendee['id'] for attendee in response.json())
+
+    response = requests.delete(f'{ENDPOINT}/attendee/{_id}')
+
+    response = requests.get(f'{ENDPOINT}/attendees')
+    assert _id not in frozenset(attendee['id'] for attendee in response.json())
+
+
 def test_POST_missing_fields(ENDPOINT):
-    ATTENDEE = {
-        "a": 1,
-    }
+    ATTENDEE = {"a": 1}
     response = requests.post(f'{ENDPOINT}/attendee', json=ATTENDEE)
     assert response.status_code == 405
 
