@@ -2,6 +2,7 @@
 Small RESTApi and web-client task using expressjs and vuejs
 
 * [redocly -> openapi.yml](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/calaldees/RESTApiTask/main/openapi.yaml)
+* [open in gitpod](https://gitpod.io#https://github.com/calaldees/RESTApiTask)
 
 
 ```
