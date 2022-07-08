@@ -5,9 +5,10 @@ Small RESTApi and web-client task using expressjs and vuejs
 
 
 ```
-curl -X POST http://localhost:8000/attendee -H "Content-Type: application/json" -d '{"id": 123, "name": "test", "notes": "some notes"}'
-curl http://localhost:8000/attendees
-curl -X DELETE http://localhost:8000/attendee/123
+curl -v -X POST    http://localhost:8000/attendee -H "Content-Type: application/json" -d '{"id": 123, "name": "test", "notes": "some notes"}'
+curl -v -X GET     http://localhost:8000/attendees
+curl -v -X DELETE  http://localhost:8000/attendee/123
+curl -v -X OPTIONS http://localhost:8000/
 ```
 
 
