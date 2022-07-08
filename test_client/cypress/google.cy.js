@@ -2,7 +2,7 @@ describe('Google', () => {
 	it('Search for university webpage and check university logo is present', () => {
 		cy.visit("https://www.google.com");
 		// * Perform a google search for canterbury christ church university (with a spelling mistake)
-		cy.contains("I agree").scrollIntoView().should('be.visible').click();
+		cy.get('button').contains("Accept all").scrollIntoView().should('be.visible').click();
 		cy.get('input[title="Search"]').should('be.visible').type("Canterbury christ chcurch uni{enter}");
 		// * Check that `canterbury.ac.uk` is somewhere in the returned list of searches
 		cy.contains("canterbury.ac.uk").click();
