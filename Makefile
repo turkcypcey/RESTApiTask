@@ -14,10 +14,13 @@ run:  ## Run server from container on port 8000
 
 .PHONY: test_server test_client
 test_server:  ## Run server unittests from container
-	${CMD_DOCKER_TEST} up --build test_server
+	${CMD_DOCKER_TEST} build
+	${CMD_DOCKER_TEST} run --rm test_server
+	${CMD_DOCKER_TEST} down
 test_client:  ## Run client/cypress tests from container
-	${CMD_DOCKER_TEST} up --build test_client
-
+	${CMD_DOCKER_TEST} build
+	${CMD_DOCKER_TEST} run --rm test_client
+	${CMD_DOCKER_TEST} down
 
 shell:  ## 
 	${CMD_DOCKER_SHELL} server
