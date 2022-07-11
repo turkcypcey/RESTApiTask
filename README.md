@@ -13,6 +13,7 @@ Task
 * You are to create an simple RSPV (Répondez s'il vous plaît) webapp with an API
 * You are to implement the [openapi](https://swagger.io/specification/) specification and create a useable web interface using open source frameworks
     * [redocly -> openapi.yml](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/calaldees/RESTApiTask/main/openapi.yaml)
+    * https://editor.swagger.io/ + https://raw.githubusercontent.com/calaldees/RESTApiTask/main/openapi.yaml
 * You have been provided with a working complete examples in [expressjs](https://expressjs.com/) and [vuejs](https://vuejs.org/)
 
 ### Steps
