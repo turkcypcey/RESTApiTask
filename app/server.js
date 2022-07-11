@@ -1,4 +1,3 @@
-const { json } = require('express')
 const express = require('express')
 const app = express()
 const port = 8000
@@ -6,7 +5,7 @@ const port = 8000
 app.use(express.json());
 
 const attendees = [
-    {"foo": "bar676"},
+    
 ]
 
 app.get('/', (req, res) => {
