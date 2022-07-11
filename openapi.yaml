@@ -40,6 +40,8 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/Attendee'
       responses:
+        '405':
+          description: Required fields are not present
         '201':
           description: Attendee created successfully
           content:
