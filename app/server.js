@@ -17,6 +17,9 @@ app.get('/attendees/', (req, res) => [
 ])
 
 app.post('/attendee/', (req, res) => {
+  if(Object.keys(req.body).sort().toString() != 'id,name,notes'){
+    return res.status(405).json({message: "I need id,name,notes"})
+  }
   attendees.push(req.body)
   res.status(201).json(req.body)
 })
