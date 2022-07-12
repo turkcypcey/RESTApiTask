@@ -106,3 +106,28 @@ function deleteAttendee(attendee_id) {
     .catch(err => console.error(err));
 }
 ```
+
+Questions
+---------
+
+* What is a REST Api
+* What is JSON
+* What is the difference between a GET and a POST
+* What are the two components that we are building
+
+* What is an OpenAPI Spec? Why is it important?
+* What are UnitTests? Why are they important?
+* What is the first thing we need to build?
+
+* What is a static file?
+* How do we implement a json GET in express?
+* How are we storing data in our app?
+
+* How we access incoming POST data?
+* How do we add items to a javascript array?
+* How do we filter items from javascript array?
+* How do we access variables from a url_path?
+
+* What are CORS headers?
+
+
