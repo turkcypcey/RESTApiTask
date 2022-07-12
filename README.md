@@ -55,14 +55,15 @@ curl -v -X OPTIONS http://localhost:8000/
 
 
 ```javascript
-// Open a blank browser tab and bring up devtools (F12)
-// Copy and paste the code below
+// 1.) Open a blank browser tab `about:blank` (blank is important, some websites have security policies)
+// 2.) bring up devtools (F12)
+// 3.) Copy and paste the code below
 //   These are javascript equivalent of `curl` statements
-// Start server api
-// Set `urlAPI` to your server address.
-// TASK: using the devtools console
-//   - add 3 items
-//   - get the item list (explore in devtools)
+// 4.) Start server api
+// 5.) Set `urlAPI` to your server address.
+// 6.) TASK: using the devtools console
+//   - add 3 attendees
+//   - get the attendee list (explore in devtools)
 //   - delete the middle item
 //
 // e.g:
