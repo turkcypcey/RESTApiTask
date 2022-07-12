@@ -52,6 +52,8 @@ can add vuejs increments to an existing site
 
 great for debugging 
 
+dev tools as the projets get bigger
+
 Server Framework Features
 -------------------------
 
