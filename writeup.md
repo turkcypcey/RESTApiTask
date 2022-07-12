@@ -17,11 +17,25 @@ Language Features
 
 Using JavaScript for this project I found that it has a lot of inconsistencies in the way it uses lists this is due to the fact that JavaScript will not allow an array to equal another array as it views them as different arrays, the inconsistencies begin here with the sort function as it will sort the list to the correct order and then update the original one. whereas the filter  
 
+annonymus function - a function without a name 
+    - javaScript can execute multiple functions at any given time this makes it very hard to debug and trace where the program is in compliing at any given time 
+    basically never waiting for the program 
+    paralisation
+    3 different ways to define functions
+
+    asynchrionas 
+    very hard to debug
+
 
 Client Framework Features
 -------------------------
 
 - vuejs
+all fornt frawirj seperate code for layout to the data 
+data seperate from everything 
+
+can bind bits of html to the datastore creating a 2 way mapping between raw html and our data model. 
+
 
 Server Framework Features
 -------------------------
@@ -34,4 +48,7 @@ Server Framework Features
 - able to bind method and root to quikly 
 -
 
+
+
+functions of first class citizens
 

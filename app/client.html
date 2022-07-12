@@ -1,1 +1,78 @@
-hello world
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link id="favicon" rel="shortcut icon" type="image/png" href="data:image/png;base64,....==" />
+	<title>RSPV App</title>
+
+    <script src="https://unpkg.com/vue@3"></script>
+
+</head>
+<body>
+    <h1>RSPV </h1>
+
+    <div id="app">
+        <form @submit.prevent="addAttendee">
+            <input name="name" placeholder="name" v-model="attendee.name">
+            <input name="notes" placeholder="notes" v-model="attendee.notes">
+            <button>RSPV</button>
+        </form>
+        <h2>Attendees</h2>
+        <ul>
+            <li v-for="aa in attendees">
+                <span>{{aa.id}}</span>
+                <span>{{aa.name}}</span>
+                <span>{{aa.notes}}</span>
+
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        const { createApp } = Vue
+        const urlAPI = ''
+      
+        createApp({
+          data() {
+            return {
+                attendee:{
+                    id: Math.random(),
+                    name: "",
+                    notes: "",
+                },
+                attendees: [],
+            }
+          },
+          created(){
+            this.updateAttendees()
+          },
+          methods: {
+            updateAttendees(){
+                fetch(`${urlAPI}/attendee`, {
+				    method: 'GET',
+                })
+                    .then(response => response.json())
+                    .then(json => this.attendees = json)
+                .catch(err => console.error(err))
+            },
+            addAttendee() {
+                fetch(`${urlAPI}/attendee`, {
+				    method: 'POST',
+				    headers: {'Content-Type': 'application/json'},
+				    body: JSON.stringify(this.attendee),
+                })
+                .then(response => response.json())
+                .then(json => console.log('addAttendee()', json))
+            .catch(err => console.error(err));
+            }
+        }
+        }).mount('#app')
+      </script>
+        
+</body>
+</html>
+
+
+
+
+
