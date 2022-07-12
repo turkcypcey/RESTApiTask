@@ -48,7 +48,7 @@
           },
           methods: {
             updateAttendees(){
-                fetch(`${urlAPI}/attendee`, {
+                fetch(`${urlAPI}/attendees`, {
 				    method: 'GET',
                 })
                     .then(response => response.json())
@@ -63,6 +63,7 @@
                 })
                 .then(response => response.json())
                 .then(json => console.log('addAttendee()', json))
+                .then(() =>this.updateAttendees())
             .catch(err => console.error(err));
             }
         }
