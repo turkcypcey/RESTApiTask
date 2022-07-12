@@ -19,7 +19,7 @@ app.get('/attendees/', (req, res) => [
     res.json(attendees),
 ])
 
-app.post('/attendee/', (req, res) => {
+app.post('/attendee', (req, res) => {
   if(Object.keys(req.body).sort().toString() != 'id,name,notes'){
     return res.status(405).json({message: "I need id,name,notes"})
   }
@@ -29,7 +29,7 @@ app.post('/attendee/', (req, res) => {
 app.delete('/attendee/:id', (req,res) =>{
   attendees = attendees.filter((i)=> i.id !=req.params.id)
   res.status(204).json({})
-})
+}) 
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
