@@ -74,20 +74,18 @@ app.delete('/attendee/:id', (req,res) =>{
 }) 
 ```
 
-The code above shows the DELETE part of the server and, after the code for the deletion has compiled a ```res.status(204).json({})```
+The code above shows the DELETE part of the server and, after the code for the deletion has compiled a ```res.status(204).json({})``` this says that a 204 status code will show up as the ```res``` means respond.
 
-- middleware
-    - supports the plug in of middleware
-    - used for decoding the json POST
-    - CORS response on the way out 
-    - installed json express mid ware 
-    what kind of middleware's are out there for express.js
+Furthermore, the code below shows the CORS middleware
 
-- able to define a root and function within the same line which is ideal for small projects as it keeps the code relatively small  
-- 
+```
+var cors = require('cors')
+app.use(cors())
+```
 
+Due to the fact that websites have CORS (Cross-Origin Resource Sharing) this code will allow them to access the webpage without causing any errors.
 
-A feature of Express would be the middleware that allows modification of request and response objects. For example, using CORS (Cross-origin resource sharing) which modification of request and response objects.
+Another function of Express.js is that it is able to define a root and function within the same line which is ideal for small projects as it keeps the code relatively small making it easier to read.
 
 - As Express.js is built on node.js, which means we have access function anywhere in the program. By having these functions commands like "app.get", we are able to reduce that amount of code we have to manually program.
 
