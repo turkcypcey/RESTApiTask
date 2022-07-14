@@ -44,7 +44,11 @@ Finally, javaScript can execute multiple functions at any given time this makes 
 Client Framework Features
 -------------------------
 
-For the frontend client side vuejs was a used the reason for this is that it has a range of features such as 
+For the frontend client side vue.js was a used the reason for this is that it has a range of features such as the fact that developers can add vue.js increments to an existing site this makes vue.js extremely useful as the developers can easily add ```v-model``` or ```v-for``` these bind html to the datastore creating a 2 way mapping between the raw html and the data model.
+
+Furthermore Vue.js 
+
+
  
 
 - vuejs
@@ -69,6 +73,8 @@ dev tools as the projets get bigger
 
 Server Framework Features
 -------------------------
+
+For the RestAPI Express.js was used 
 
 - used expressjs
 - middleware
