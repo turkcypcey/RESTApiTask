@@ -1,7 +1,7 @@
 RestAPITask
 ===========
 
-Within this task I had to create an API for a RSPV to be able to add attendees, delete attendees and, see the list of attendees. Using an OpenAPI specification I was told what the RSPV required for it to work and pass the unit tests and be completed. 
+Within this task I had to create an API for a RSPV to be able to add attendees, delete attendees and, see the list of attendees. Using an OpenAPI specification I was told what was required for this API to work, OpenAPI spec is a very useful tool in the industry as it allows both the server and user teams to be able to work on the project at the same time without having to wait for each other to complete a task as the specification tells exactly what is needed for both teams. Furthermore, if one of the developers are sick then the rest of the team are able to carry on with the work as they can easily see where the previous developer was and carry on from there, by simply running and passing the unit tests will tell the developer where they are in the project. Unit tests are a small program within the program and they work by adding in data to the project and if the project carries on working after it means that the test has been passed. Also, they are a great way telling the client how far along they are in completing their project as once all the tests have been completed the  project is finished. 
 
 Language Features
 ------------------
@@ -21,6 +21,10 @@ Using JavaScript for this project I found that it has a lot of inconsistencies i
 attendees = attendees.filter((i)=> i.id !=req.params.id)
 ```
 
+The code above shows the ```.filter``` and this line of code is in the delete part of the server and essentially says the id which is going to be removed is taken out however wants this happens a new list is created without the id which had been removed. 
+
+The ```.push``` function is 
+
 annonymus function - a function without a name 
     - javaScript can execute multiple functions at any given time this makes it very hard to debug and trace where the program is in compliing at any given time 
     basically never waiting for the program 
@@ -35,7 +39,7 @@ Client Framework Features
 -------------------------
 
 - vuejs
-all fornt frawirj seperate code for layout to the data 
+all forntend  frameworks seperate code for layout to the data 
 data seperate from everything 
 
 can bind bits of html to the datastore creating a 2 way mapping between raw html and our data model. 
