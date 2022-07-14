@@ -37,19 +37,15 @@ app.post('/attendee', (req, res) => {
 
 The code above is the POST part of the server this part is responsible for the adding of attendees as can be seen above.
 
-Another function of javaScript is that it has anonoumyus functions these are essentially functions without names 
-annonymus function - a function without a name 
-    - javaScript can execute multiple functions at any given time this makes it very hard to debug and trace where the program is in compliing at any given time 
-    basically never waiting for the program 
-    paralisation
-    3 different ways to define functions
+Another function of javaScript is that it has anonymous functions these are essentially functions without names this makes it incredibly useful when coding as it is extremely easy to define a function without having to 
 
-    asynchrionas 
-    very hard to debug
-
+Finally, javaScript can execute multiple functions at any given time this makes it very hard to debug and trace, this is due to the fact that javaScript runs in an asynchronous way so the whole program functions are running at once this makes the runtime of the program very fast as the user is never waiting for the program to compile the rest of the code as it would for example, C# that is a synchronous language meaning that when it is compiling it will go line by line making the runtime a lot slower.
 
 Client Framework Features
 -------------------------
+
+For the frontend client side vuejs was a used the reason for this is that it has a range of features such as 
+ 
 
 - vuejs
 all forntend  frameworks seperate code for layout to the data 
@@ -85,7 +81,4 @@ Server Framework Features
 - able to define a root and function within the same line which is ideal for small projects as it keeps the code relatively small  
 - 
 
-
-
-functions of first class citizens
 
