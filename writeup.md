@@ -6,15 +6,6 @@ Within this task I had to create an API for a RSPV to be able to add attendees, 
 Language Features
 ------------------
 
-- used javaScript 
-- array manipulation
-    - .sort
-        - sorts out the list and updates the original 
-    - .filter
-        - filters out what is not needed and creates a new list
-    - .push 
-        - adds a item to the bottom of the list 
-
 Using JavaScript for this project I found that it has a lot of inconsistencies in the way it uses lists this is due to the fact that JavaScript will not allow an array to equal another array as it views them as different arrays, the inconsistencies begin here with the sort function as it will sort the list to the correct order and then update the original one. Whereas the filter function will create a new array with the filtered item beng removed for example:
 
 ```
@@ -46,45 +37,58 @@ Client Framework Features
 
 For the frontend client side vue.js was a used the reason for this is that it has a range of features such as the fact that developers can add vue.js increments to an existing site this makes vue.js extremely useful as the developers can easily add ```v-model``` or ```v-for``` these bind html to the datastore creating a 2 way mapping between the raw html and the data model.
 
-Furthermore Vue.js 
+Furthermore Vue.js keeps the data separate to the layout this is due to 
 
 
  
 
-- vuejs
-all forntend  frameworks seperate code for layout to the data 
-data seperate from everything 
+- vue.js
+all front end  frameworks separate code for layout to the data 
+data separate from everything 
 
 can bind bits of html to the datastore creating a 2 way mapping between raw html and our data model. 
 
-compndnts 
+components 
 
 1 data
-2 html laout
+2 html layout
 3 functions which modify    
 
 v-model and v-for bind the html to vue.js
 
-can add vuejs increments to an existing site 
+can add vue.js increments to an existing site 
 
 great for debugging 
 
-dev tools as the projets get bigger
+dev tools as the projects get bigger
 
 Server Framework Features
 -------------------------
 
-For the RestAPI Express.js was used 
+For the RestAPI Express.js was used and the features of this framework is the fact Express.js supports plug-in middleware, this allows the modification of request and response objects as can be seen from:
 
-- used expressjs
+```
+app.delete('/attendee/:id', (req,res) =>{
+  attendees = attendees.filter((i)=> i.id !=req.params.id)
+  res.status(204).json({})
+}) 
+```
+
+The code above shows the DELETE part of the server and, after the code for the deletion has compiled a ```res.status(204).json({})```
+
 - middleware
     - supports the plug in of middleware
     - used for decoding the json POST
     - CORS response on the way out 
     - installed json express mid ware 
-    what kind of middlewares are out there for expressjs
+    what kind of middleware's are out there for express.js
 
 - able to define a root and function within the same line which is ideal for small projects as it keeps the code relatively small  
 - 
 
 
+A feature of Express would be the middleware that allows modification of request and response objects. For example, using CORS (Cross-origin resource sharing) which modification of request and response objects.
+
+- As Express.js is built on node.js, which means we have access function anywhere in the program. By having these functions commands like "app.get", we are able to reduce that amount of code we have to manually program.
+
+- Another feature of express.js is has Routing and HTTP Methods. Express use REST (representational state transfer), which provides the use of GET, PUT, POST, DELETE methods. I implemented these methods to request and respond to the front end and back end server.
