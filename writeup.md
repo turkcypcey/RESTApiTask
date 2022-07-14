@@ -85,8 +85,12 @@ app.use(cors())
 
 Due to the fact that websites have CORS (Cross-Origin Resource Sharing) this code will allow them to access the webpage without causing any errors.
 
-Another function of Express.js is that it is able to define a root and function within the same line which is ideal for small projects as it keeps the code relatively small making it easier to read.
+Another function of Express.js is that it is able to define a root and function within the same line which is ideal for small projects as it keeps the code relatively small making it easier to read, such as:
 
-- As Express.js is built on node.js, which means we have access function anywhere in the program. By having these functions commands like "app.get", we are able to reduce that amount of code we have to manually program.
+```
+app.get('/', (req, res) => {
+  res.sendFile('client.html', {root: __dirname})
+})
+```
+the ```app.get('/',(req, res)``` is the root and function being defined in the same like. 
 
-- Another feature of express.js is has Routing and HTTP Methods. Express use REST (representational state transfer), which provides the use of GET, PUT, POST, DELETE methods. I implemented these methods to request and respond to the front end and back end server.
