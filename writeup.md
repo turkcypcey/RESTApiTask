@@ -37,30 +37,25 @@ Client Framework Features
 
 For the frontend client side vue.js was a used the reason for this is that it has a range of features such as the fact that developers can add vue.js increments to an existing site this makes vue.js extremely useful as the developers can easily add ```v-model``` or ```v-for``` these bind html to the datastore creating a 2 way mapping between the raw html and the data model.
 
-Furthermore Vue.js keeps the data separate to the layout this is due to 
+Furthermore Vue.js keeps the data separate to the layout this is due to the way it works and how it calls the data to be compiled. This therefore makes Vue.js great for debugging as the data is separate to the html layout.
 
+```
+addAttendee() {
+                fetch(`${urlAPI}/attendee`, {
+				    method: 'POST',
+				    headers: {'Content-Type': 'application/json'},
+				    body: JSON.stringify(this.attendee),
+                })
+                .then(response => response.json())
+                .then(json => console.log('addAttendee()', json))
+                .then(() =>this.updateAttendees())
+            .catch(err => console.error(err));
+            }
+        }
+```
+This code above shows how vue.js fetches the data from the server to display the list once the new attendee has been added.
 
- 
-
-- vue.js
-all front end  frameworks separate code for layout to the data 
-data separate from everything 
-
-can bind bits of html to the datastore creating a 2 way mapping between raw html and our data model. 
-
-components 
-
-1 data
-2 html layout
-3 functions which modify    
-
-v-model and v-for bind the html to vue.js
-
-can add vue.js increments to an existing site 
-
-great for debugging 
-
-dev tools as the projects get bigger
+Finally another feature that Vue.js has is that it has its own dev tools which can resolve issues while the site is still running making it extremely useful to developers to see as the projects get bigger. 
 
 Server Framework Features
 -------------------------
@@ -81,8 +76,8 @@ Furthermore, the code below shows the CORS middleware
 ```
 var cors = require('cors')
 app.use(cors())
-```
-
+```    
+                                                                                                                    
 Due to the fact that websites have CORS (Cross-Origin Resource Sharing) this code will allow them to access the webpage without causing any errors.
 
 Another function of Express.js is that it is able to define a root and function within the same line which is ideal for small projects as it keeps the code relatively small making it easier to read, such as:
